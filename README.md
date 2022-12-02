@@ -5,10 +5,10 @@
 ## Installations
 - Open game and set full screen, leave the game as normal
 - (Optional) Virtual Environment:
-  * `virtualenv .env`
-  * `.env\scripts\activate`
+    * `virtualenv .env`
+    * `.env\scripts\activate`
 1. Install requirements from requirements.txt:
-  * `pip install -r requirements.txt`
+    * `pip install -r requirements.txt`
 2. Run:
-  * `python main.py`
+    * `python main.py`
 3. Change focus to game window
