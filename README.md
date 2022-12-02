@@ -1,6 +1,6 @@
 # tof-frontier-clash
-### Made a while ago, not sure if still works
-### Support Full HD screen resolution (1920x1080) 
+#### Made a while ago, not sure if still works
+#### Support Full HD screen resolution (1920x1080) 
 
 ## Installations
 - Open game and set full screen, leave the game as normal
