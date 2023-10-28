@@ -1,2 +1,2 @@
 @echo off
-"%cd%/.env/Scripts/python.exe" "%cd%/main.py"
+"%cd%/venv/Scripts/python.exe" "%cd%/main.py"
