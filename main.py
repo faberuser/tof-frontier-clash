@@ -296,7 +296,8 @@ def run():
 
 
 if __name__ == "__main__":
-    print("Script is running, please focus on Game window in 10 seconds.")
+    print("Script is running, please focus on game window in 10 seconds.")
+    print("If the script doesn't do anything, stop this and rerun as administrator.")
     print("Stop the script with CTRL-C.")
     sleep(10)
     run()
