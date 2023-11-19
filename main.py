@@ -1,30 +1,55 @@
-import pyautogui
+import sys
+from os import chdir, getcwd, path
 from time import sleep, strftime, gmtime
 from random import randint, uniform
+from glob import glob
+from shutil import rmtree
+
+import pyautogui
 from win32gui import FindWindow, GetWindowText, GetForegroundWindow, ShowWindow, SetActiveWindow, SetForegroundWindow
 
 pyautogui.FAILSAFE = False
-
 solo = True
 
-activate = "./images/activate.png"
-approve = "./images/approve.png"
-assist = "./images/assist.png"
-assist_check = "./images/assist-check.png"
-auto = "./images/auto.png"
-enter = "./images/enter.png"
-challenge = "./images/challenge.png"
-clock = "./images/clock.png"
-close = "./images/close.png"
-close_2 = "./images/close_2.png"
-frontier_clash = "./images/frontier-clash.png"
-frontier_clash_completed = "./images/frontier-clash-completed.png"
-go = "./images/go.png"
-match = "./images/match.png"
-ok = "./images/ok.png"
-_quit = "./images/quit.png"
-skip = "./images/skip.png"
-overworld = "./images/overworld.png"
+chdir(getcwd())
+assets_path = None
+
+try:
+    assets_path = sys._MEIPASS + "\\images\\"
+    open(sys._MEIPASS + '\\is_tof_frontier_clash', 'a').close()
+
+    base_path = (sys._MEIPASS).split("\\")
+    base_path.pop(-1)
+    temp_path = ""
+    for item in base_path:
+        temp_path = temp_path + item + "\\"
+
+    mei_folders = [f for f in glob(temp_path + "**/", recursive=False)]
+    for item in mei_folders:
+        if item.find('_MEI') != -1 and item != sys._MEIPASS + "\\":
+            if path.exists(item + '\\is_tof_frontier_clash'):
+                rmtree(item)
+except AttributeError:
+    assets_path = ".\\images\\"
+
+activate = assets_path + "activate.png"
+approve = assets_path + "approve.png"
+assist = assets_path + "assist.png"
+assist_check = assets_path + "assist-check.png"
+auto = assets_path + "auto.png"
+enter = assets_path + "enter.png"
+challenge = assets_path + "challenge.png"
+clock = assets_path + "clock.png"
+close = assets_path + "close.png"
+close_2 = assets_path + "close_2.png"
+frontier_clash = assets_path + "frontier-clash.png"
+frontier_clash_completed = assets_path + "frontier-clash-completed.png"
+go = assets_path + "go.png"
+match = assets_path + "match.png"
+ok = assets_path + "ok.png"
+_quit = assets_path + "quit.png"
+skip = assets_path + "skip.png"
+overworld = assets_path + "overworld.png"
 
 
 def is_on_screen(img, cutoff=0.7):
@@ -272,5 +297,6 @@ def run():
 
 if __name__ == "__main__":
     print("Script is running, please focus on Game window in 10 seconds.")
+    print("Stop the script with CTRL-C.")
     sleep(10)
     run()
