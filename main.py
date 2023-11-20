@@ -189,7 +189,7 @@ def run(stop_when_has_attemps):
                             sleep(randint(8, 10))
 
                             pyautogui.keyDown("w")
-                            sleep(2.3)
+                            sleep(2.2)
                             pyautogui.keyUp("w")
 
                             sleep(uniform(0.5, 1))
