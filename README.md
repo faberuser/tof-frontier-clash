@@ -1,9 +1,9 @@
 # tof-frontier-clash
 Only support game in full screen with FHD resolution (1920x1080).
 
-This script assume you can 1 shot every mods in Normal mod/ solo farming.
+This script assumes you can 1 shot every mods in Normal mode to do solo farming.
 
-If you already at max level, it still useful for farming vehicle materials to upgrade them for DC.
+If you already at max level, it is still useful for farming vehicle materials to upgrade them for DC.
 
 ## Usage
 1. Download executable from [Release](https://github.com/faber6/tof-frontier-clash/releases).
