@@ -1,15 +1,24 @@
 # tof-frontier-clash
-#### Support Full HD screen resolution (1920x1080) 
+Only support game in full screen with FHD resolution (1920x1080).
 
-## Installations
-- Open game and set full screen, leave the game as normal
+This script assume you can 1 shot every mods in Normal mod/ solo farming.
 
-1. Install requirements from requirements.txt:
+If you already at max level, it still useful for farming vehicle materials to upgrade them for DC.
+
+## Usage
+1. Download executable from [Release](https://github.com/faber6/tof-frontier-clash/releases).
+2. Open the game and turn on Full Screen Display, other graphic settings can be as low as possible.
+3. Run the script.
+
+## Expected behaviour
+Since we are soloing, the script needs to activate the level at the beginning. If it moves over the level, the match will cancel after 2 minutes, and the script will rejoin by itself.
+
+## Manual installations
+1. Install requirements
 ```
 pip install -r requirements.txt
 ```
-2. Run:
+2. Run
 ```
 python main.py
 ```
-3. Change focus to game window

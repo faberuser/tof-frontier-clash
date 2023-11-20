@@ -74,7 +74,7 @@ def press_mouse(pos, right=False, wait=[0.05, 0.1]):
         pyautogui.mouseUp()
 
 
-def run():
+def run(stop_when_has_attemps):
     runs = 0
     while True:
         if (GetWindowText(GetForegroundWindow()) != "Tower of Fantasy  "):
@@ -126,6 +126,7 @@ def run():
                     count += 1
 
             elif is_on_screen(overworld):
+                print("\n")
                 while True:
                     pyautogui.keyDown("alt")
                     sleep(uniform(0.5, 1))
@@ -148,6 +149,9 @@ def run():
 
                 while True:
                     if is_on_screen(frontier_clash):
+                        if stop_when_has_attemps:
+                            print("Detect attempt(s) available, script terminated.")
+                            return
                         press_mouse(is_on_screen(frontier_clash))
                         print("Clicked Frontier Clash")
                         sleep(randint(1, 2))
@@ -176,9 +180,8 @@ def run():
                             print("Waiting 10-15s for loading animation")
                             sleep(randint(8, 10))
 
-                            activated = False
                             pyautogui.keyDown("w")
-                            sleep(2.4)
+                            sleep(2.3)
                             pyautogui.keyUp("w")
 
                             sleep(uniform(0.5, 1))
@@ -192,10 +195,10 @@ def run():
 
                     while True:
                         if is_on_screen(activate):
-                            activated = True
-                            pyautogui.keyDown("f")
-                            sleep(2)
-                            pyautogui.keyUp("f")
+                            for i in range(0, 6):
+                                pyautogui.keyDown("f")
+                                sleep(randint(1, 2))
+                                pyautogui.keyUp("f")
                             print("Activated")
                             sleep(randint(5, 10))
                             break
@@ -273,10 +276,10 @@ def run():
                         press_mouse(is_on_screen(auto, 0.6))
                         sleep(uniform(0.5, 1))
                         pyautogui.keyUp("alt")
-                        print("Clicked Auto, entered the battle")
+                        print("Clicked Auto")
                         print("End this loop, waiting to finish for next one")
-                        print("Currently did " + str(runs + 1) +
-                              " runs including this.")
+                        print(
+                            f"Currently did [{str(runs + 1)}] runs including this.")
                         sleep(randint(240, 270))
                         break
 
@@ -295,9 +298,20 @@ def run():
             break
 
 
-if __name__ == "__main__":
-    print("Script is running, please focus on game window in 10 seconds.")
-    print("If the script doesn't do anything, stop this and rerun as administrator.")
-    print("Stop the script with CTRL-C.")
+def main(stop_when_has_attemps):
+    print("\nIf the script doesn't do anything after 10 seconds, stop this and rerun as administrator.")
+    print("Stop the script with CTRL-C while focusing on this window.")
     sleep(10)
-    run()
+    run(stop_when_has_attemps)
+
+
+if __name__ == "__main__":
+    _stop = input(
+        "Do you want stop the script when Frontier Clash attempt(s) is available? (Y/N) > ")
+    if _stop.lower() == "y":
+        main(True)
+    elif _stop.lower() == "n":
+        main(False)
+    else:
+        print("Invalid answer, script terminated.")
+    input("\nEnter any key to exit")
