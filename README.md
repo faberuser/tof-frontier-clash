@@ -11,14 +11,19 @@ If you already at max level, it is still useful for farming vehicle materials to
 3. Run the script.
 
 ## Expected behaviour
-Since we are soloing, the script needs to activate the level at the beginning. If it moves over the level, the match will cancel after 2 minutes, and the script will rejoin by itself.
+Since we are soloing, the script needs to activate the level at the beginning. If it moves over the level, the match will be canceled after 1 min 30 secs, then the script will rejoin by itself.
 
 ## Manual installations
-1. Install requirements
+1. Virtual environment
+```
+python -m venv venv ; venv\Scripts\activate
+```
+2. Install requirements
 ```
 pip install -r requirements.txt
 ```
-2. Run
+3. Run
 ```
 python main.py
 ```
+or run `start.bat`
