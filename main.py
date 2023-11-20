@@ -30,7 +30,7 @@ try:
             if path.exists(item + '\\is_tof_frontier_clash'):
                 rmtree(item)
 except AttributeError:
-    assets_path = ".\\images\\"
+    assets_path = getcwd() + "\\images\\"
 
 activate = assets_path + "activate.png"
 approve = assets_path + "approve.png"
