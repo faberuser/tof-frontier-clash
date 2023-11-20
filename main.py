@@ -145,6 +145,11 @@ def run(stop_when_has_attemps):
                         press_mouse(is_on_screen(challenge))
                         print("Clicked Challenge")
                         sleep(randint(1, 2))
+
+                    elif is_on_screen(frontier_clash):
+                        break
+
+                    elif is_on_screen(frontier_clash_completed):
                         break
 
                 while True:
@@ -166,6 +171,8 @@ def run(stop_when_has_attemps):
                         press_mouse(is_on_screen(go))
                         print("Clicked Go")
                         sleep(randint(1, 2))
+
+                    elif is_on_screen(enter):
                         break
 
                 if solo:
@@ -173,6 +180,8 @@ def run(stop_when_has_attemps):
                         if is_on_screen(enter):
                             press_mouse(is_on_screen(enter))
                             print("Clicked Enter")
+
+                        elif not is_on_screen(enter):
                             break
 
                     while True:
@@ -195,7 +204,7 @@ def run(stop_when_has_attemps):
 
                     while True:
                         if is_on_screen(activate):
-                            for i in range(0, 6):
+                            for i in range(1, 10):
                                 pyautogui.keyDown("f")
                                 sleep(randint(1, 2))
                                 pyautogui.keyUp("f")
@@ -285,13 +294,8 @@ def run(stop_when_has_attemps):
 
         except KeyboardInterrupt:
             print("--------------------------")
-            text = (
-                "["
-                + strftime("%m/%d/%Y-%H:%M:%S", gmtime())
-                + "] Cancelled, did a total of ["
-                + str(runs)
-                + "] Frontier Clash runs.\n"
-            )
+            end_time = strftime("%m/%d/%Y-%H:%M:%S", gmtime())
+            text = f"[{end_time}] Cancelled, did a total of [{str(runs)}] Frontier Clash runs.\n"
             print(text)
             with open("./results.txt", "a") as f:
                 f.write(text)
