@@ -126,7 +126,6 @@ def run(stop_when_has_attemps):
                     count += 1
 
             elif is_on_screen(overworld):
-                print("\n")
                 while True:
                     pyautogui.keyDown("alt")
                     sleep(uniform(0.5, 1))
@@ -288,7 +287,7 @@ def run(stop_when_has_attemps):
                         print("Clicked Auto")
                         print("End this loop, waiting to finish for next one")
                         print(
-                            f"Currently did [{str(runs + 1)}] runs including this.")
+                            f"Currently did [{str(runs + 1)}] runs including this.\n")
                         sleep(randint(240, 270))
                         break
 
@@ -304,7 +303,7 @@ def run(stop_when_has_attemps):
 
 def main(stop_when_has_attemps):
     print("\nIf the script doesn't do anything after 10 seconds, stop this and rerun as administrator.")
-    print("Stop the script with CTRL-C while focusing on this window.")
+    print("Stop the script with CTRL-C while focusing on this window.\n")
     sleep(10)
     run(stop_when_has_attemps)
 
