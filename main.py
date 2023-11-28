@@ -310,7 +310,7 @@ def main(stop_when_has_attemps):
 
 if __name__ == "__main__":
     _stop = input(
-        "Do you want stop the script when Frontier Clash attempt(s) is available? (Y/N) > ")
+        "Do you want to stop the script when Frontier Clash attempt(s) is available? (Y/N) > ")
     if _stop.lower() == "y":
         main(True)
     elif _stop.lower() == "n":
